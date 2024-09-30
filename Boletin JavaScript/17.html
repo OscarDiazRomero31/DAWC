@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparar Fechas</title>
+    <script src="funciones.js" defer></script>
+</head>
+<body>
+    <h1>Comparación de Fechas</h1>
+    
+    <h3>Primera Fecha</h3>
+    <label for="dia1">Día:</label>
+    <input type="number" id="dia1" min="1" max="31">
+    <label for="mes1">Mes:</label>
+    <input type="number" id="mes1" min="1" max="12">
+    <label for="anio1">Año:</label>
+    <input type="number" id="anio1">
+
+    <h3>Segunda Fecha</h3>
+    <label for="dia2">Día:</label>
+    <input type="number" id="dia2" min="1" max="31">
+    <label for="mes2">Mes:</label>
+    <input type="number" id="mes2" min="1" max="12">
+    <label for="anio2">Año:</label>
+    <input type="number" id="anio2">
+
+    <br><br>
+    <button onclick="compararFechas()">Comparar Fechas</button>
+
+    <h3>Resultado:</h3>
+    <p id="resultado"></p>
+</body>
+</html>

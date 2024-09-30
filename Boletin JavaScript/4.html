@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saludo según el tiempo</title>
+    <script src="funciones.js" defer></script>
+</head>
+<body>
+    <h1>Determinar el saludo según la hora</h1>
+
+    <label for="hora">Introduce la hora (0-23):</label>
+    <input type="number" id="hora" placeholder="Hora" min="0" max="23">
+
+    <label for="minutos">Introduce los minutos (0-59):</label>
+    <input type="number" id="minutos" placeholder="Minutos" min="0" max="59">
+
+    <button onclick="determinarSaludo()">Mostrar Saludo</button>
+
+    <h3>Resultado:</h3>
+    <p id="resultado"></p>
+</body>
+</html>

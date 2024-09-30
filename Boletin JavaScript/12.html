@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calificación en Letras</title>
+    <script src="funciones.js" defer></script>
+</head>
+<body>
+    <h1>Introducir Nota y Mostrar Calificación</h1>
+
+    <label for="nota">Introduce la nota (0-10):</label>
+    <input type="number" id="nota" placeholder="Nota" step="0.01" min="0" max="10">
+
+    <br><br>
+    <button onclick="mostrarCalificacion()">Mostrar Calificación</button>
+
+    <h3>Resultado:</h3>
+    <p id="resultado"></p>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversión de Euros</title>
+    <script src="funciones.js" defer></script>
+</head>
+<body>
+    <h1>Conversor de Euros</h1>
+
+    <label for="euros">Introduce la cantidad de euros:</label>
+    <input type="number" id="euros" placeholder="Euros">
+
+    <h3>Selecciona la moneda a la que deseas convertir:</h3>
+    <select id="moneda">
+        <option value="USD">Dólares (USD)</option>
+        <option value="GBP">Libras (GBP)</option>
+        <option value="JPY">Yenes (JPY)</option>
+        <option value="CHF">Francos Suizos (CHF)</option>
+        <option value="NOK">Coronas Noruegas (NOK)</option>
+    </select>
+
+    <br><br>
+    <button onclick="convertirMoneda()">Convertir</button>
+    <button onclick="reiniciar()">Reiniciar</button>
+    
+    <h3>Resultado de la conversión:</h3>
+    <p id="resultado"></p>
+
+    <button onclick="salir()">Salir</button>
+</body>
+</html>
