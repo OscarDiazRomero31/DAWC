@@ -1,36 +1,46 @@
 function contarNombres() {
-    let nombres = [];
-    let nombre;
     let totalNombres = 0;
-    let nombresConC = 0;
-    let nombresConÑ = 0;
+    let nombresC = 0;
+    let nombresConEnie = 0;
 
     while (true) {
-        nombre = prompt("Ingrese un nombre (escriba 'ULTIMO' para finalizar):");
-        
-        if (nombre.toUpperCase() === "ULTIMO") {
-            break;
+        let nombre = prompt("Ingrese un nombre (o escriba 'ULTIMO' para terminar):");
+
+        if (nombre === "ULTIMO") {
+            break; 
         }
 
-        // Agregar nombre a la lista
-        nombres.push(nombre);
+        totalNombres++;
+
+        if (nombre.charAt(0).toUpperCase() === "C") {
+            nombresC++;
+        }
+
+        for (let i = 0; i < nombre.length; i++) {
+            if (nombre[i] === "ñ" || nombre[i] === "Ñ") {
+                nombresConEnie++;
+                break; 
+            }
+        }
     }
 
-    // Contar nombres
-    totalNombres = nombres.length;
-
-    // Contar cuántos empiezan con C y cuántos contienen ñ
-    nombres.forEach(nombre => {
-        if (nombre.charAt(0).toUpperCase() === 'C') {
-            nombresConC++;
-        }
-        if (nombre.includes('ñ') || nombre.includes('Ñ')) {
-            nombresConÑ++;
-        }
-    });
-
-    // Mostrar resultados en el HTML
-    document.getElementById("totalNombres").textContent = "Total de nombres ingresados: " + totalNombres;
-    document.getElementById("nombresC").textContent = "Nombres que comienzan con 'C': " + nombresConC;
-    document.getElementById("nombresÑ").textContent = "Nombres que contienen 'ñ': " + nombresConÑ;
+    document.getElementById("resultado").innerHTML = `
+        <p>Total de nombres leídos: ${totalNombres}</p>
+        <p>Nombres que comienzan con "C": ${nombresC}</p>
+        <p>Nombres que contienen "ñ": ${nombresConEnie}</p>
+    `;
 }
+
+function contarNombres() {
+    const input = document.getElementById("nombres").value;
+    
+    const nombres = input.split(',').map(nombre => nombre.trim());
+
+    const totalNombres = nombres.length;
+
+    const nombresConC = nombres.filter(nombre => /^[cC]/.test(nombre)).length;
+
+    const resultDiv = document.getElementById("result");
+    resultDiv.innerHTML = `Total de nombres leídos: ${totalNombres}<br>Nombres que comienzan con 'C': ${nombresConC}`;
+}
+
