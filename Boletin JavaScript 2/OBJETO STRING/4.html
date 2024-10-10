@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar Resolución de Pantalla</title>
+</head>
+<body>
+    <h2>Mostrar Información de la Pantalla</h2>
+
+    <button onclick="mostrarInfoPantalla()">Mostrar resolución y profundidad de color</button>
+
+    <script>
+        function mostrarInfoPantalla() {
+            const ancho = screen.width;
+            const alto = screen.height;
+            const profundidadColor = screen.colorDepth;
+
+            alert(`Ancho de la pantalla: ${ancho}px\nAlto de la pantalla: ${alto}px\nProfundidad de color: ${profundidadColor} bits por píxel`);
+        }
+    </script>
+</body>
+</html>

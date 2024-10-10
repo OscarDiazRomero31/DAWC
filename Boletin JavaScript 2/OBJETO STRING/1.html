@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1</title>
+</head>
+<body>
+    <button onclick="mostrarNavigator()">Abrir una ventana</button>
+
+    <script>
+        function mostrarNavigator() {
+            let nuevaVentana = window.open("", "", "width=600,height=400");
+
+            const propiedadesNavigator = JSON.stringify(navigator, null, 2);
+
+            nuevaVentana.document.write("<html><head><title>Propiedades de Navigator</title></head><body><pre>" + propiedadesNavigator + "</pre></body></html>");
+            nuevaVentana.document.close();
+        }
+    </script>
+</body>
+</html>

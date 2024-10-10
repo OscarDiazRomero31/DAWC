@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abrir y Cerrar Ventana</title>
+</head>
+<body>
+    <h2>Abrir y Cerrar Ventana con Mensaje</h2>
+
+    <a href="#" onclick="abrirVentana(); return false;">Abrir ventana</a> |
+    <a href="#" onclick="cerrarVentana(); return false;">Cerrar ventana</a>
+
+    <script>
+        let nuevaVentana;
+
+        function abrirVentana() {
+            if (!nuevaVentana || nuevaVentana.closed) {
+                nuevaVentana = window.open("", "", "width=400,height=300,left=0,top=0,resizable=yes,scrollbars=yes");
+
+                nuevaVentana.document.write(`
+                    <html>
+                    <head>
+                        <title>Mensaje</title>
+                        <style>
+                            body {
+                                font-family: Arial, sans-serif;
+                                font-size: 24px;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                height: 100vh;
+                                margin: 0;
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        El ojo es la ventana a tu alma
+                    </body>
+                    </html>
+                `);
+
+                nuevaVentana.focus();
+            } else {
+                nuevaVentana.focus();
+            }
+        }
+
+        function cerrarVentana() {
+            if (nuevaVentana && !nuevaVentana.closed) {
+                nuevaVentana.close();
+            }
+        }
+    </script>
+</body>
+</html>

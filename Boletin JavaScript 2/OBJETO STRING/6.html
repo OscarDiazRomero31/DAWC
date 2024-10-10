@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Ventana Flotante</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Control de Ventana Flotante</h1>
+    
+    <!-- Botones para controlar la ventana flotante -->
+    <button onclick="abrirVentana()">Abrir ventana flotante</button>
+    <button onclick="abrirVentanaYDetenerla()">Abrir ventana flotante y detenerla</button>
+    <button onclick="cerrarVentana()">Cerrar ventana flotante</button>
+    <button onclick="focoVentana()">Dar foco a la ventana flotante</button>
+    <button onclick="quitarFocoVentana()">Quitar foco de la ventana flotante</button>
+    <button onclick="scrollAbsoluto()">Scroll absoluto (0, 1000)</button>
+    <button onclick="scrollRelativo()">Scroll relativo (0, 10)</button>
+
+    <script>
+        let ventanaFlotante;
+
+        // Función para abrir la ventana flotante
+        function abrirVentana() {
+            if (!ventanaFlotante || ventanaFlotante.closed) {
+                ventanaFlotante = window.open('', 'Ventana Flotante', 'width=400,height=300');
+                ventanaFlotante.document.write('<h2>Ventana Flotante</h2>');
+                agregarControles();
+            }
+        }
+
+        // Función para abrir la ventana flotante y detenerla (sin permitir cambios de tamaño)
+        function abrirVentanaYDetenerla() {
+            if (!ventanaFlotante || ventanaFlotante.closed) {
+                ventanaFlotante = window.open('', 'Ventana Flotante Detenida', 'width=400,height=300,menubar=no,toolbar=no,resizable=no');
+                ventanaFlotante.document.write('<h2>Ventana Flotante Detenida</h2>');
+                agregarControles();
+            }
+        }
+
+        // Función para cerrar la ventana flotante
+        function cerrarVentana() {
+            if (ventanaFlotante && !ventanaFlotante.closed) {
+                ventanaFlotante.close();
+            }
+        }
+
+        // Función para dar foco a la ventana flotante
+        function focoVentana() {
+            if (ventanaFlotante && !ventanaFlotante.closed) {
+                ventanaFlotante.focus();
+            }
+        }
+
+        // Función para quitar el foco de la ventana flotante
+        function quitarFocoVentana() {
+            if (ventanaFlotante && !ventanaFlotante.closed) {
+                window.focus();
+            }
+        }
+
+        // Función para realizar un scroll absoluto (0, 1000) en la página actual
+        function scrollAbsoluto() {
+            window.scrollTo(0, 1000);
+        }
+
+        // Función para realizar un scroll relativo (0, 10) en la página actual
+        function scrollRelativo() {
+            window.scrollBy(0, 10);
+        }
+
+        // Agregar los controles a la ventana flotante
+        function agregarControles() {
+            ventanaFlotante.document.body.innerHTML += `
+                <button onclick="window.moveTo(500, 150)">Mover absoluto (500, 150)</button>
+                <button onclick="window.moveBy(0, 50)">Mover relativo (0, 50)</button>
+                <button onclick="window.resizeTo(500, 500)">Redimensionar absoluto (500, 500)</button>
+                <button onclick="window.resizeBy(-50, -50)">Redimensionar relativo (-50, -50)</button>
+            `;
+        }
+    </script>
+</body>
+</html>

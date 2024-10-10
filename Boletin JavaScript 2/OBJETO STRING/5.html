@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reloj Digital</title>
+</head>
+<body>
+    <h2>Reloj Digital en el Título</h2>
+    <p>Este reloj se actualizará cada minuto en el título de la pestaña.</p>
+
+    <script>
+        function actualizarTitulo() {
+            const ahora = new Date();
+            let horas = ahora.getHours();
+            let minutos = ahora.getMinutes();
+
+            if (minutos < 10) {
+                minutos = '0' + minutos;
+            }
+
+            const horaActual = horas + ':' + minutos;
+
+            document.title = horaActual;
+        }
+
+        actualizarTitulo();
+
+        setInterval(actualizarTitulo, 60000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2</title>
+</head>
+<body>
+    <h2>Información del Navegador</h2>
+    <p id="info-navegador"></p>
+
+    <script>
+        function obtenerInformacionNavegador() {
+            const navegador = navigator.userAgent;  
+            const plataforma = navigator.platform;  
+            let nombreNavegador = "Desconocido";
+            let version = "Desconocida";
+            
+            
+            if (navegador.indexOf("Firefox") > -1) {
+                nombreNavegador = "Mozilla Firefox";
+                version = navegador.match(/Firefox\/(\d+\.\d+)/)[1];  
+            } else if (navegador.indexOf("Chrome") > -1 && navegador.indexOf("Edg") === -1) {
+                nombreNavegador = "Google Chrome";
+                version = navegador.match(/Chrome\/(\d+\.\d+)/)[1];  
+            } else if (navegador.indexOf("Edg") > -1) {
+                nombreNavegador = "Microsoft Edge";
+                version = navegador.match(/Edg\/(\d+\.\d+)/)[1];  
+            } else if (navegador.indexOf("Safari") > -1 && navegador.indexOf("Chrome") === -1) {
+                nombreNavegador = "Safari";
+                version = navegador.match(/Version\/(\d+\.\d+)/)[1];  
+            } else if (navegador.indexOf("Opera") > -1 || navegador.indexOf("OPR") > -1) {
+                nombreNavegador = "Opera";
+                version = navegador.match(/(Opera|OPR)\/(\d+\.\d+)/)[2]; 
+            }
+
+            const infoTexto = `
+                <strong>Navegador:</strong> ${nombreNavegador}<br>
+                <strong>Versión:</strong> ${version}<br>
+                <strong>Sistema Operativo:</strong> ${plataforma}
+            `;
+            document.getElementById("info-navegador").innerHTML = infoTexto;
+        }
+
+        obtenerInformacionNavegador();
+    </script>
+</body>
+</html>
